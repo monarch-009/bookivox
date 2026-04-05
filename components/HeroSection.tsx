@@ -4,66 +4,54 @@ import Link from 'next/link'
 
 const HeroSection = () => {
     return (
-        <section className="wrapper mb-10 md:mb-16">
-            <div className="library-hero-card">
-                <div className="library-hero-content">
+        <section className="wrapper mb-10 md:mb-16 pt-32">
+            <div className="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-12 relative overflow-hidden flex items-center shadow-sm">
+                <div className="flex flex-col md:flex-row items-center gap-12 w-full">
                     {/* Left Part */}
-                    <div className="library-hero-text">
-                        <h1 className="library-hero-title text-4xl font-serif font-bold">Your Library</h1>
-                        <p className="library-hero-description">
-                            Convert your books into interactive AI conversations. <br className="hidden md:block" />
-                            Listen, learn, and discuss your favorite reads.
+                    <div className="flex-1 flex flex-col gap-4 text-center md:text-left z-10">
+                        <h1 className="text-4xl md:text-6xl font-bold text-black tracking-tighter leading-tight">Your AI <br /> Library</h1>
+                        <p className="text-gray-500 text-lg leading-relaxed max-w-sm">
+                            The minimalist space where your books come to life. Discuss your favorite reads with AI.
                         </p>
-                        <Link href="/books/new" className="library-cta-primary mt-4 flex items-center justify-center">
-                            <span className="text-3xl font-light mb-1 mr-2">+</span>
-                            <span className="text-[#212a3b]">Add new book</span>
+                        <Link href="/books/new" className="mt-6 inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all w-fit shadow-xl group">
+                            <span>Add new book</span>
+                            <span className="text-2xl font-light group-hover:rotate-90 transition-transform">+</span>
                         </Link>
                     </div>
 
-                    {/* Center Part - Desktop */}
-                    <div className="library-hero-illustration-desktop">
+                    {/* Center Part */}
+                    <div className="flex-1 max-w-[320px] hidden lg:flex items-center justify-center">
                         <Image
                             src="/assets/hero-illustration.png"
-                            alt="Vintage books and a globe"
-                            width={400}
-                            height={400}
-                            className="object-contain"
+                            alt="Minimal illustration"
+                            width={320}
+                            height={320}
+                            className="object-contain grayscale opacity-80"
                         />
                     </div>
 
-                    {/* Center Part - Mobile (Hidden on Desktop) */}
-                    <div className="library-hero-illustration">
-                        <Image
-                            src="/assets/hero-illustration.png"
-                            alt="Vintage books and a globe"
-                            width={300}
-                            height={300}
-                            className="object-contain"
-                        />
-                    </div>
-
-                    {/* Right Part */}
-                    <div className="library-steps-card min-w-[260px] max-w-[280px] z-10 shadow-soft-md">
-                        <ul className="space-y-6">
-                            <li className="library-step-item">
-                                <div className="w-10 h-10 min-w-10 min-h-10 rounded-full border border-gray-300 flex items-center justify-center font-medium text-lg">1</div>
-                                <div className="flex flex-col">
-                                    <h3 className="library-step-title text-lg font-bold">Upload PDF</h3>
-                                    <p className="library-step-description text-gray-500">Add your book file</p>
+                    {/* Right Part - Steps */}
+                    <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm min-w-[280px] z-10">
+                        <ul className="space-y-8">
+                            <li className="flex items-start gap-4">
+                                <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">1</div>
+                                <div>
+                                    <h3 className="font-bold text-black text-sm uppercase tracking-widest">Upload</h3>
+                                    <p className="text-gray-400 text-xs">Drop your PDF anytime</p>
                                 </div>
                             </li>
-                            <li className="library-step-item">
-                                <div className="w-10 h-10 min-w-10 min-h-10 rounded-full border border-gray-300 flex items-center justify-center font-medium text-lg">2</div>
-                                <div className="flex flex-col">
-                                    <h3 className="library-step-title text-lg font-bold">AI Processing</h3>
-                                    <p className="library-step-description text-gray-500">We analyze the content</p>
+                            <li className="flex items-start gap-4">
+                                <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">2</div>
+                                <div>
+                                    <h3 className="font-bold text-black text-sm uppercase tracking-widest">Analyze</h3>
+                                    <p className="text-gray-400 text-xs">Gemini maps the content</p>
                                 </div>
                             </li>
-                            <li className="library-step-item">
-                                <div className="w-10 h-10 min-w-10 min-h-10 rounded-full border border-gray-300 flex items-center justify-center font-medium text-lg">3</div>
-                                <div className="flex flex-col">
-                                    <h3 className="library-step-title text-lg font-bold">Voice Chat</h3>
-                                    <p className="library-step-description text-gray-500">Discuss with AI</p>
+                            <li className="flex items-start gap-4">
+                                <div className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center font-bold text-xs">3</div>
+                                <div>
+                                    <h3 className="font-bold text-black text-sm uppercase tracking-widest">Chat</h3>
+                                    <p className="text-gray-400 text-xs">Interactive voice session</p>
                                 </div>
                             </li>
                         </ul>

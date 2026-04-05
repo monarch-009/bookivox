@@ -1,11 +1,18 @@
 import React from 'react'
+import { currentUser } from "@clerk/nextjs/server";
 import HeroSection from "@/components/HeroSection";
 import BookCard from "@/components/BookCard";
 import {getAllBooks} from "@/lib/actions/book.actions";
 import Search from "@/components/Search";
+import LandingPage from "@/components/LandingPage";
 
 const Page = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
+    const user = await currentUser();
     const { query } = await searchParams;
+
+    if (!user) {
+        return <LandingPage />
+    }
 
     const bookResults = await getAllBooks(query)
     const books = bookResults.success ? bookResults.data ?? [] : []
